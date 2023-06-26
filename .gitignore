@@ -1,0 +1,9 @@
+node_modules
+deploy.sh
+*.json
+**/*.yaml
+
+dist
+app.js
+deploy_github.sh
+constant.js
