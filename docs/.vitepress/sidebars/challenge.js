@@ -5,7 +5,7 @@ export default {
       collapsible: true,
       collapsed: false,
       items: [
-        { text: "数组", link: "/challenge/" },
+        { text: "栈", link: "/challenge/" },
       ],
     }
   ]
