@@ -32,3 +32,35 @@ function isValid(s) {
   return stack.length === 0;
 }
 ```
+
+### 删除有序数组中的重复项
+- 思路: 
+  - 使用双指针
+  - 让快指针走在最前面, 如果快指针的前一位和后一位不相等, 则慢指针当前的位置等于快指针位置的值, 同时慢指针往前移一位
+
+
+```javascript
+/**
+ * 删除排序数组中的重复项
+ *  双指针
+ * @param {number[]} nums
+ * @returns {number}
+ * @description 给定一个数组[1, 2, 3, 4, 4, 5], 剔除重复的, 返回数组的长度, 数组是升序
+ */
+var removeDuplicates = function (nums) {
+  const n = nums.length;
+  if (n === 0) {
+    return 0;
+  }
+  let fast = 1, slow = 1;
+  while(fast < n) {
+    // 判断前一位和后一位不相等
+    if (nums[fast] !== nums[fast - 1]) {
+      nums[slow] = nums[fast];
+      ++slow;
+    }
+    ++fast;
+  }
+  return slow;
+};
+```
