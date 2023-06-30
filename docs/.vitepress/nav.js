@@ -6,8 +6,12 @@ export function getNavs() {
     },
 
     {
-      text: '每日一题',
+      text: '每日一题之算法',
       link: '/challenge/'
+    },
+    {
+      text: '每日一题之面试',
+      link: '/interview'
     }
   ]
 }
