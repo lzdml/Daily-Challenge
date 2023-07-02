@@ -11,7 +11,7 @@ export function getNavs() {
     },
     {
       text: '每日一题之面试',
-      link: '/interview'
+      link: '/interview/'
     }
   ]
 }

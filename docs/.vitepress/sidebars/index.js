@@ -1,5 +1,6 @@
-import ChallengeSidebar from './challenge'
+import ChallengeSidebar from "./challenge";
+import InterviewSidebar from "./interview";
 
 export function getSidebar() {
-  return { ...ChallengeSidebar };
+  return { ...ChallengeSidebar, ...InterviewSidebar };
 }
