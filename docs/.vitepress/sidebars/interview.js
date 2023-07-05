@@ -24,6 +24,10 @@ export default {
           text: "vue生命周期那些事",
           link: "/interview/vue/vue的生命周期",
         },
+        {
+          text: "vue双向绑定理解",
+          link: "/interview/vue/vue双向绑定理解",
+        },
       ],
     },
   ],
