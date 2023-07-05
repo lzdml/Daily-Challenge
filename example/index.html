@@ -65,6 +65,35 @@
       ball.style.setProperty("--endY", `${0}px`);
     </script>
 
+    <script>
+      function calculateFactorial(n) {
+        if (n <= 1) {
+          return 1;
+        }
+
+        return n * calculateFactorial(n - 1);
+      }
+
+      function calculateSumOfFactorials(n) {
+        let sum = 0;
+
+        for (let i = 1; i <= n; i++) {
+          sum += calculateFactorial(i);
+        }
+
+        return sum;
+      }
+
+      const result = calculateSumOfFactorials(10);
+      console.log("result: >>>", result);
+    </script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', (event) => {
+        console.log('first')
+      })
+    </script>
+
     <script src="./链表.js"></script>
     <script src="./继承.js"></script>
     <script src="./性能优化.js"></script>
