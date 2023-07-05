@@ -16,6 +16,14 @@ export default {
           text: "对spa理解并实现",
           link: "/interview/vue/对spa理解",
         },
+        {
+          text: "实例挂在的过程发生了什么",
+          link: "/interview/vue/实例挂在的过程发生了什么",
+        },
+        {
+          text: "vue生命周期那些事",
+          link: "/interview/vue/vue的生命周期",
+        },
       ],
     },
   ],
