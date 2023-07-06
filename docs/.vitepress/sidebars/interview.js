@@ -7,7 +7,7 @@ export default {
       items: [{ text: "每日一题之js类型判断", link: "/interview/" }],
     },
     {
-      text: "vue相关",
+      text: "vue2相关",
       collapsible: true,
       collapsed: false,
       items: [
@@ -27,6 +27,21 @@ export default {
         {
           text: "vue双向绑定理解",
           link: "/interview/vue/vue双向绑定理解",
+        },
+      ],
+    },
+    {
+      text: "vue3相关",
+      collapsible: true,
+      collapsed: false,
+      items: [
+        {
+          text: "vue3做了哪些优化",
+          link: "/interview/vue3/",
+        },
+        {
+          text: "vue3性能提升",
+          link: "/interview/vue3/性能提升表现",
         },
       ],
     },
