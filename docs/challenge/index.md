@@ -141,3 +141,43 @@ var simplifyPath = function (path) {
   return "/" + stack.join("/");
 };
 ```
+
+### 用栈实现队列
+- 思路: 
+  - 队列是 `FIFO(先进先出)`, 栈是`FILO(先进后出)`, 两者正好相反
+  - 需要两个栈来模拟队列, 一个栈用作入队栈, 一个是出队栈
+  - 当出队栈存在内容时, 出队栈栈顶的元素即为需要出队的元素
+  - 当出队栈不存在内容时, 将入队栈反转进出队栈, 栈顶元素依旧是第一个要出队的元素
+
+```javascript
+var MyQueue = function () {
+  this.is = [];
+  this.os = [];
+};
+
+MyQueue.prototype.push = function (x) {
+  this.is.push(x);
+};
+
+MyQueue.prototype.pop = function () {
+  if (!this.os.length) {
+    while (this.is.length) {
+      this.os.push(this.is.pop());
+    }
+  }
+  return this.os.pop();
+};
+
+MyQueue.prototype.peek = function () {
+  if (!this.os.length) {
+    while (this.is.length) {
+      this.os.push(this.is.pop());
+    }
+  }
+  return this.os[this.os.length - 1];
+};
+
+MyQueue.prototype.empty = function () {
+  return !this.is.length && !this.os.length;
+};
+```

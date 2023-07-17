@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>用栈实现队列</title>
+  </head>
+  <body>
+    <script>
+      var MyQueue = function () {
+        this.is = [];
+        this.os = [];
+      };
+
+      MyQueue.prototype.push = function (x) {
+        this.is.push(x);
+      };
+
+      MyQueue.prototype.pop = function () {
+        if (!this.os.length) {
+          while (this.is.length) {
+            this.os.push(this.is.pop());
+          }
+        }
+        return this.os.pop();
+      };
+
+      MyQueue.prototype.peek = function () {
+        if (!this.os.length) {
+          while (this.is.length) {
+            this.os.push(this.is.pop());
+          }
+        }
+        return this.os[this.os.length - 1];
+      };
+
+      MyQueue.prototype.empty = function () {
+        return !this.is.length && !this.os.length;
+      };
+
+      const queue = new MyQueue();
+      queue.push(1)
+      queue.push(2)
+      queue.push(3)
+      queue.push(4)
+      console.log('queue.pop() :>> ', queue.pop());
+      console.log('queue :>> ', queue);
+    </script>
+  </body>
+</html>
