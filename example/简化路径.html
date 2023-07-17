@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>简化路径</title>
+  </head>
+  <body>
+    <script>
+      var simplifyPath = function (path) {
+        path = path.split("/");
+        let stack = [];
+
+        for (let p of path) {
+          // 两个点表示切换上一级 所以将栈顶弹出
+          if (p === "..") {
+            if (stack.length) {
+              stack.pop();
+            }
+          }
+
+          // .表示当前目录, 和 '' 一样没有价值可以不考虑
+          else if (p !== "" && p !== ".") {
+            stack.push(p);
+            console.log('p :>> ', p);
+            console.log('stack :>> ', stack);
+          }
+        }
+
+        console.log("stack last :>> ", stack);
+        return "/" + stack.join("/");
+      };
+
+      // console.log(
+      //   'simplifyPath("/home//path") :>> ',
+      //   simplifyPath("/home/../path")
+      // );
+      const path = "/a/./b/../../c/";
+      console.log(`simplifyPath(${path})`, simplifyPath(path));
+    </script>
+  </body>
+</html>

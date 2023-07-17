@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>单例模式</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .dialog-wrapper {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .dialog {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        width: 200px;
+        height: 200px;
+        background-color: red;
+      }
+
+      .dialog-show {
+        animation: dialog-fade .5s;
+      }
+
+      @keyframes dialog-fade {
+        0% {
+          transform: translateY(-100px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="handleOpen()">点击</button>
+    <button onclick="handleOpen2()">点击2</button>
+    <script>
+      function Singleton(name) {
+        this.name = name;
+        this.instance = null;
+      }
+
+      // 原型扩展类的一个方法getName()
+      Singleton.prototype.getName = function () {
+        console.log("this.name :>> ", this.name);
+      };
+
+      Singleton.getInstance = function (name) {
+        if (!this.instance) {
+          this.instance = new Singleton(name);
+        }
+        return this.instance;
+      };
+
+      const a = Singleton.getInstance("A");
+      const b = Singleton.getInstance("B");
+
+      a.getName();
+      b.getName();
+      console.log("a === b :>> ", a === b);
+      console.log("a :>> ", a);
+      console.log("b :>> ", b);
+
+      class Singleton1 {
+        constructor(data) {
+          if (Singleton1.instance) {
+            return Singleton1.instance;
+          }
+          Singleton1.instance = this;
+          this.data = data;
+        }
+
+        getData() {
+          return this.data;
+        }
+      }
+
+      const instance1 = new Singleton1("Instance 1");
+      const instance2 = new Singleton1("Instance 2");
+
+      console.log("instance1.getData() :>> ", instance1.getData());
+      console.log("instance2.getData() :>> ", instance2.getData());
+
+      class Dialog {
+        constructor() {
+          if (Dialog.instance) {
+            return Dialog.instance;
+          }
+          Dialog.instance = this;
+
+          this.isOpen = false;
+          this.title = "";
+          this.content = "";
+          this.dialogElement = null;
+          this.closeButtonElement = null;
+        }
+
+        open(title, content) {
+          if (this.isOpen) {
+            return;
+          }
+          this.isOpen = true;
+          this.title = title;
+          this.content = content;
+          this.createDialogElement();
+          this.showDialog();
+        }
+
+        close() {
+          if (!this.isOpen) {
+            return;
+          }
+          this.isOpen = false;
+          this.title = "";
+          this.content = "";
+          this.dialogElement.classList.add("dialog-hide");
+
+          setTimeout(() => {
+            this.removeDialogElement();
+          }, 300); // 等待动画结束后移除对话框元素
+        }
+
+        createDialogElement() {
+          this.dialogElement = document.createElement("div");
+          this.dialogElement.className = "dialog";
+
+          const titleElement = document.createElement("h2");
+          titleElement.textContent = this.title;
+          this.dialogElement.appendChild(titleElement);
+
+          const contentElement = document.createElement("p");
+          contentElement.textContent = this.content;
+          this.dialogElement.appendChild(contentElement);
+
+          this.closeButtonElement = document.createElement("button");
+          this.closeButtonElement.textContent = "Close";
+          this.closeButtonElement.addEventListener("click", () => {
+            this.close();
+          });
+          this.dialogElement.appendChild(this.closeButtonElement);
+
+          document.body.appendChild(this.dialogElement);
+        }
+
+        showDialog() {
+          requestAnimationFrame(() => {
+            this.dialogElement.classList.add("dialog-show");
+          });
+        }
+
+        removeDialogElement() {
+          this.dialogElement.remove();
+          this.dialogElement = null;
+          this.closeButtonElement = null;
+        }
+      }
+
+      // 示例使用
+      const dialog1 = new Dialog();
+      const dialog2 = new Dialog();
+
+      dialog1.open("Hello, Dialog!", "Welcome to the dialog example."); // 打开对话框
+      dialog2.open(
+        "This is a singleton dialog.",
+        "Only one instance is created."
+      ); // 已打开对话框，不会创建新的实例
+
+      setTimeout(() => {
+        dialog1.close(); // 关闭对话框
+      }, 20000);
+    </script>
+  </body>
+</html>
