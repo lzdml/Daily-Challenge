@@ -6,7 +6,7 @@ var globalConfig = "每日一题";
 
 export default defineConfig({
   lang: "zh-CN",
-  base: "/Daily-Challenge/",
+  base: "personai.site/Daily-Challenge/",
   appearance: true,
   title: globalConfig,
   description: "VitePress is a Vite-powered static site generator",
