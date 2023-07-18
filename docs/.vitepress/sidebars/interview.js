@@ -7,6 +7,12 @@ export default {
       items: [{ text: "每日一题之js类型判断", link: "/interview/" }],
     },
     {
+      text: "重学javascript",
+      collapsible: true,
+      collapsed: false,
+      items: [{ text: "深浅拷贝", link: "/interview/重学javascript/" }],
+    },
+    {
       text: "vue2相关",
       collapsible: true,
       collapsed: false,

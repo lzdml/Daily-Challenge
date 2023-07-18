@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>深浅拷贝</title>
+  </head>
+  <body>
+    <script>
+      let arr = [12, 2, 3];
+      let arr2 = arr;
+      arr[0] = arr[0] + 1;
+      console.log("arr2 :>> ", arr2);
+      console.log("arr :>> ", arr);
+      console.log("arr === arr2 :>> ", arr === arr2);
+
+      let targetObj = {
+        name: "lm",
+        age: 22,
+        sex: 0,
+        job: {
+          key: "前端",
+          key2: "后端",
+        },
+      };
+      let obj = {
+        name: "dzl",
+      };
+      let obj2 = {
+        name: "世界",
+      };
+
+      Object.assign(targetObj, obj, obj2);
+      console.log("targetObj :>> ", targetObj);
+      let targetObj2 = { ...targetObj };
+      targetObj.job.key = "web前端";
+      targetObj.age = 18;
+      console.log("targetObj.age = 18 :>> ");
+      console.log("targetObj.job.key = 'web前端'");
+      console.log("targetObj :>> ", targetObj);
+      console.log("targetObj2 :>> ", targetObj2);
+
+      let arr4 = [1, 2, 3, 4, 5];
+      let arr3 = arr4.slice();
+      arr3[0] = 0;
+      console.log("arr3 :>> ", arr3);
+      console.log("arr4 :>> ", arr4);
+
+      function shallowCopy(obj) {
+        if (!obj || typeof obj !== "object") return obj;
+        let newObj = Array.isArray(obj) ? [] : {};
+
+        for (let key in obj) {
+          console.log("key :>> ", key);
+          let value = obj[key];
+          if (obj.hasOwnProperty(key)) {
+            newObj[key] = value;
+          }
+        }
+        return newObj;
+      }
+      const a = shallowCopy(targetObj);
+      let sourceA = "1";
+      const a1 = shallowCopy(sourceA);
+      console.log("a :>> ", a);
+      sourceA = "2";
+      console.log("a1 :>> ", a1);
+
+      const data = {
+        name: "dzl",
+        age: 20,
+        job: {
+          job1: "web",
+          job2: "back",
+          job3: {
+            key: "嘻嘻",
+          },
+        },
+      };
+
+      let newObj = Object.assign({}, data);
+      newObj.age = 30;
+      newObj.job.job1 = "哈哈哈哈哈";
+      console.log("data :>> ", data);
+      console.log("newObj :>> ", newObj);
+
+      function cloneDeep(target, map = new Map()) {
+        if (target === null) return null;
+        if (typeof target !== "object") return target;
+        if (target.constructor === Date) return new Date(target);
+        if (target.constructor === RegExp) return new RegExp(target);
+        if (map.has(target)) return map.get(target);
+        const newTarget = new target.constructor();
+        map.set(target, newTarget);
+        Reflect.ownKeys(target).forEach((key) => {
+          newTarget[key] = cloneDeep(target[key], map);
+        });
+        return newTarget;
+      }
+   
+      
+      let c1 = cloneDeep(data)
+      data.job.job3.key = "hahahah";
+      console.log('c1 :>> ', c1);
+      console.log('data :>> ', data);
+   </script>
+  </body>
+</html>
