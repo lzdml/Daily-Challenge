@@ -17,6 +17,9 @@ export default defineConfig({
     lineNumbers: true,
   },
   themeConfig: {
+    search: {
+      provider: 'local'
+    },
     siteTitle: globalConfig,
     logo: '/favicon.ico',
     footer: {

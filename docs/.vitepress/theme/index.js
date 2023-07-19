@@ -1,10 +1,9 @@
 import DefaultTheme from "vitepress/theme";
+import Prompts from "../../../components/prompts.vue";
 
 export default {
   ...DefaultTheme,
   enhanceApp({ app }) {
-    app.component("render-page", () =>
-      import("../../../components/renderPage.vue")
-    );
+    app.component("GlobalPrompts", Prompts);
   },
 };
