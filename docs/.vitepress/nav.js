@@ -12,6 +12,10 @@ export function getNavs() {
     {
       text: '每日一题之面试',
       link: '/interview/'
+    },
+    {
+      text: 'chatgpt Prompts提示',
+      link: '/gpt/'
     }
   ]
 }
