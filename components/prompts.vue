@@ -1,6 +1,6 @@
 <template>
   <div style="position: relative">
-    <div class="title-container ">
+    <div class="title-container">
       <div
         class="btn"
         v-for="item in allPrompts"
@@ -37,13 +37,6 @@ const select = (item) => {
 const filterPrompts = computed(() =>
   allPrompts.filter((item) => item.title.includes(checkedKeyword.value))
 );
-
-console.log("filterPrompts :>> ", filterPrompts.value);
-
-// 示例使用
-onMounted(() => {
-  // const waterfall = new Waterfall(".grid-container", ".item", 300, 10);
-});
 </script>
 
 <style scoped>
@@ -58,19 +51,30 @@ onMounted(() => {
 .title-container {
   display: flex;
   flex-wrap: wrap;
-  max-height: 200px;
+  max-height: 250px;
   overflow-y: auto;
   column-gap: 10px;
   row-gap: 10px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding: 16px;
+  border: 1px solid rgba(100, 100, 111, 0.2);
+  /* linear-gradient(180deg, transparent, #000, transparent); */
+  -webkit-mask-image: linear-gradient(rgba(0, 0, 0, 1), transparent);
 }
 
 .title-container .btn {
   padding: 5px 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #dedede;
   border-radius: 6px;
   cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.title-container .btn:hover {
+  transform: translateY(-5px) scale(1.1);
+  z-index: 999;
+  border-color: #1d93ab;
 }
 
 .reset {
@@ -82,8 +86,8 @@ onMounted(() => {
 
 /* 滚动槽 */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 4px;
+  height: 4px;
 }
 ::-webkit-scrollbar-track {
   border-radius: 3px;
@@ -98,9 +102,9 @@ onMounted(() => {
 }
 
 .active {
-  background: #F02D2D;
+  background: #f02d2d;
   color: #fff;
-  border-color: #F02D2D !important;
+  border-color: #f02d2d !important;
 }
 
 /* @media only screen and (max-width: 1024px) {

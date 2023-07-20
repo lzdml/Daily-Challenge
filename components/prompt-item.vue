@@ -39,6 +39,7 @@ const copy = (targetValue: string) => {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   text-align: center;
   border-radius: 6px;
+  font-size: 14px;
 }
 
 .grid-item:not(:last-child) {
