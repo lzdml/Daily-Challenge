@@ -16,6 +16,14 @@ export function getNavs() {
     {
       text: 'chatgpt Prompts提示',
       link: '/gpt/'
-    }
+    },
+    {
+      text: 'AIGC',
+      link: '/aigc/'
+    },
+    {
+      text: "关于",
+      link: "/about/",
+    },
   ]
 }

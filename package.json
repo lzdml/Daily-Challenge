@@ -13,7 +13,6 @@
   "author": "LZDML",
   "license": "ISC",
   "devDependencies": {
-    "puppeteer": "^17.1.3",
     "vitepress": "1.0.0-alpha.9",
     "vue": "^3.2.37"
   },
