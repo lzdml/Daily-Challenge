@@ -12,7 +12,8 @@ export default {
       collapsed: false,
       items: [
         { text: "gpt生成sd关键词", link: "/aigc/sd/gpt" },
-        { text: "stable diffusion", link: "/aigc/sd/" }
+        { text: "stable diffusion", link: "/aigc/sd/" },
+        { text: "sd参数列表", link: "/aigc/sd/options" }
       ],
     },
     {
@@ -21,5 +22,17 @@ export default {
       collapsed: false,
       items: [{ text: "lora介绍", link: "/aigc/lora/" }],
     },
+
+    {
+      text: '视频搬砖',
+      collapsed: true,
+      collapsible: true,
+      items: [
+        {
+          text: 'fluent-ffmpeg',
+          link: '/aigc/video/'
+        }
+      ]
+    }
   ],
 };
