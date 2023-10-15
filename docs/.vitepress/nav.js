@@ -22,6 +22,10 @@ export function getNavs() {
       link: '/aigc/'
     },
     {
+      text: 'python',
+      link: '/py/'
+    },
+    {
       text: "关于",
       link: "/about/",
     },
