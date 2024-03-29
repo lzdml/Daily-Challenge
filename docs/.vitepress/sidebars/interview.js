@@ -7,6 +7,12 @@ export default {
       items: [{ text: "每日一题之js类型判断", link: "/interview/" }],
     },
     {
+      text: "网络",
+      collapsible: true,
+      collapsed: false,
+      items: [{ text: "http相关", link: "/interview/network/" }],
+    },
+    {
       text: "重学javascript",
       collapsible: true,
       collapsed: false,
@@ -48,6 +54,17 @@ export default {
         {
           text: "vue3性能提升",
           link: "/interview/vue3/性能提升表现",
+        },
+      ],
+    },
+    {
+      text: "react相关",
+      collapsible: true,
+      collapsed: false,
+      items: [
+        {
+          text: "react中setState什么时候是同步的, 什么时候是异步的",
+          link: "/interview/react/",
         },
       ],
     },

@@ -11,6 +11,7 @@ export default {
       collapsible: true,
       collapsed: false,
       items: [
+        { text: "controlnet", link: "/aigc/sd/controlnet" },
         { text: "gpt生成sd关键词", link: "/aigc/sd/gpt" },
         { text: "stable diffusion", link: "/aigc/sd/" },
         { text: "sd参数列表", link: "/aigc/sd/options" }
