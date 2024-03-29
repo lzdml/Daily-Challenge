@@ -4,7 +4,10 @@ export default {
       text: "面试题",
       collapsible: true,
       collapsed: false,
-      items: [{ text: "每日一题之js类型判断", link: "/interview/" }],
+      items: [
+        { text: "每日一题之js类型判断", link: "/interview/" },
+        { text: "npm 模块安装机制", link: "/interview/npm" }
+      ],
     },
     {
       text: "网络",
